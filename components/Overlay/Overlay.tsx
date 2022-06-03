@@ -27,7 +27,13 @@ export default function Overlay({ children, closeOverlay, blur }: Props) {
       } flex items-end justify-center`}
       onClick={closeOverlay}
     >
-      <motion.div className="m-6 w-full" onClick={(e) => e.stopPropagation()}>
+      <motion.div
+        initial={{ y: "100vh" }}
+        animate={{ y: 0, transition: { duration: 0.3 } }}
+        exit={{ y: "100vh", transition: { duration: 0.3 } }}
+        className="m-4 w-full"
+        onClick={(e) => e.stopPropagation()}
+      >
         {children}
       </motion.div>
     </div>

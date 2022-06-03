@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Avatar from "../../components/Avatar/Avatar";
 import Button from "../../components/Buttons/Button/Button";
@@ -77,18 +78,21 @@ export default function Profile() {
       </div>
 
       {/* Social share */}
-      {showOverlay && (
-        <Overlay
-          closeOverlay={() => {
-            setShowOverlay(false);
-          }}
-        >
-          <div className="rounded-lg bg-white p-6">
-            <h3 className="text-center text-black">Share Robert's profile</h3>
-            <div></div>
-          </div>
-        </Overlay>
-      )}
+      <AnimatePresence exitBeforeEnter>
+        {showOverlay && (
+          <Overlay
+            blur
+            closeOverlay={() => {
+              setShowOverlay(false);
+            }}
+          >
+            <div className="rounded-lg bg-white p-6">
+              <h3 className="text-center text-black">Share Roberts profile</h3>
+              <div></div>
+            </div>
+          </Overlay>
+        )}
+      </AnimatePresence>
     </Skeleton>
   );
 }
