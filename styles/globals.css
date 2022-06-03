@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Font import */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+/* Global styles */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  @apply scroll-smooth font-ubuntu;
+}
+
+body {
+  @apply bg-white dark:bg-black;
+}
+
+h1 {
+  @apply text-5xl font-bold text-heading-light dark:text-white;
+}
+
+p {
+  @apply text-lg font-normal text-secondary-light dark:text-secondary-dark;
+}
+
+a {
+  @apply text-secondary-light dark:text-secondary-dark hover:underline hover:underline-offset-4;
+}
+
+label {
+  @apply text-sm font-semibold text-secondary-light dark:text-secondary-dark;
+}
+
+input {
+  @apply placeholder:text-secondary-light placeholder:dark:text-secondary-dark bg-transparent focus:outline-none;
+}
+
+.input__default {
+  @apply bg-white dark:bg-background-secondary-dark p-2 border border-border-primary rounded-lg focus:outline-none text-black dark:text-white focus:border-2 focus:border-button-primary;
+}
+
+.btn {
+  @apply p-2.5 rounded-lg;
+}
+
+.btn__primary {
+  @apply bg-button-primary p-3 rounded-lg text-white;
+}
