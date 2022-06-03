@@ -1,20 +1,36 @@
 import Link from "next/link";
-import React from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import Button from "../components/Buttons/Button/Button";
-import GoogleIcon from "../components/Icons/GoogleIcon";
 import Input from "../components/Input/Input";
+import Skeleton from "../components/Skeleton/Skeleton";
 
 export default function SignIn() {
+  const { register, getValues, handleSubmit, reset, formState } = useForm();
+
+  const { isSubmitting } = formState;
+  const { errors } = formState;
+
+  const signIn = () => {
+    const email = getValues("email");
+    console.log(email);
+  };
+
   return (
-    <>
-      <div className="p-6 mt-10 text-center flex flex-col space-y-2">
+    <Skeleton>
+      <div className="mt-10 flex flex-col space-y-2 p-6 text-center">
         <h1>Hello</h1>
         <p>Enter your details below</p>
       </div>
 
       {/* Sign in form */}
       <div>
-        <form className="p-6 flex flex-col space-y-4">
+        <form
+          name="sign-in"
+          id="sign-in"
+          className="flex flex-col space-y-4 p-6"
+          onSubmit={handleSubmit(signIn)}
+        >
           <Input
             labelFor="email"
             labelText="E-mail"
@@ -32,28 +48,37 @@ export default function SignIn() {
           <Link href={""}>
             <a className="text-right">Forgot password?</a>
           </Link>
-          <Button text="Sign in" type="default" />
+          <Button
+            type={"submit"}
+            text={isSubmitting ? "Signing in..." : "Sign in"}
+            shape="default"
+            form="sign-in"
+            disabled={isSubmitting ? true : false}
+          />
         </form>
       </div>
 
       {/* Or continue with */}
-      <div className="text-center flex flex-col space-y-5 m-6">
+      <div className="m-6 flex flex-col space-y-5 text-center">
         <p>Or continue with</p>
         <Button
           text="Sign in with Google"
           icon={"google"}
           iconSize="xl"
-          type="special"
+          shape="special"
+          onclick={() => {
+            toast.success("You are in!");
+          }}
         />
         <Button
           text="Sign in with Apple"
           icon={"apple"}
           iconSize="xl"
-          type="special"
+          shape="special"
         />
       </div>
 
-      <div className="text-center p-6 mt-16">
+      <div className="mt-16 p-6 text-center">
         <p>
           Don’t Have Any Account?{" "}
           <span className="font-bold underline underline-offset-4">
@@ -61,6 +86,6 @@ export default function SignIn() {
           </span>
         </p>
       </div>
-    </>
+    </Skeleton>
   );
 }

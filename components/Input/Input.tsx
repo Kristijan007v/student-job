@@ -9,6 +9,7 @@ interface Props {
   placeholder?: string;
   value?: any;
   icon?: "email" | "password" | "google" | "apple";
+  props?: any;
 }
 
 export default function Input({
@@ -18,11 +19,12 @@ export default function Input({
   placeholder,
   value,
   icon,
+  ...rest
 }: Props) {
   return (
     <div className="flex flex-col space-y-3">
       <label htmlFor={labelFor}>{labelText}</label>
-      <div className="flex items-center input__default space-x-2">
+      <div className="input__default flex items-center space-x-2">
         {icon === "email" ? (
           <EmailIcon
             size={"xl"}
@@ -37,10 +39,11 @@ export default function Input({
           )
         )}
         <input
-          className="flex-grow m-0"
+          className="m-0 flex-grow"
           type={type}
           placeholder={placeholder}
           value={value}
+          {...rest}
         />
       </div>
     </div>

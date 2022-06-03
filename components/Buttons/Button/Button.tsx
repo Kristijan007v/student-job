@@ -5,17 +5,22 @@ import { motion } from "framer-motion";
 
 interface Props {
   onclick?: () => void;
-  type?: "default" | "special";
+  shape?: "default" | "special";
   style?: string;
   text: string;
   ariaLabel?: string;
   icon?: "google" | "apple";
   iconSize?: "xs" | "sm" | "md" | "lg" | "xl";
   iconStyle?: string;
+  type?: string;
+  form?: string;
+  disabled?: boolean;
+  props?: any;
 }
 
 export default function Button({
   onclick,
+  shape,
   type,
   ariaLabel,
   style,
@@ -23,6 +28,9 @@ export default function Button({
   icon,
   iconSize,
   iconStyle,
+  form,
+  disabled,
+  props,
 }: Props) {
   return (
     <motion.button
@@ -42,11 +50,14 @@ export default function Button({
       }}
       onClick={onclick}
       className={`btn ${
-        type == "special"
-          ? "border border-black dark:border-white text-black dark:text-white"
+        shape == "special"
+          ? "border border-black text-black dark:border-white dark:text-white"
           : "bg-button-primary text-white"
       } flex items-center justify-center space-x-4 ${style}`}
       aria-label={ariaLabel}
+      form={form}
+      disabled={disabled}
+      {...props}
     >
       {icon === "google" ? (
         <GoogleIcon size={iconSize} style={iconStyle} />

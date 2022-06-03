@@ -24,6 +24,10 @@ h1 {
   @apply text-5xl font-bold text-heading-light dark:text-white;
 }
 
+h2 {
+  @apply text-3xl font-bold text-heading-light dark:text-white;
+}
+
 p {
   @apply text-lg font-normal text-secondary-light dark:text-secondary-dark;
 }
@@ -37,11 +41,11 @@ label {
 }
 
 input {
-  @apply bg-transparent placeholder:text-secondary-light focus:outline-none placeholder:dark:text-secondary-dark;
+  @apply bg-transparent placeholder:text-secondary-light focus:border-b-2 focus:border-button-primary focus:outline-none placeholder:dark:text-secondary-dark;
 }
 
 .input__default {
-  @apply rounded-lg border border-border-primary bg-white p-2 text-black focus:border-2 focus:border-button-primary focus:outline-none dark:bg-background-secondary-dark dark:text-white;
+  @apply rounded-lg border border-border-primary bg-white p-2.5 text-black focus:border-2 focus:border-button-primary  focus:outline-none dark:bg-background-secondary-dark dark:text-white;
 }
 
 .btn {
