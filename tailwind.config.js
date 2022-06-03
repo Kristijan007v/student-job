@@ -18,8 +18,15 @@ module.exports = {
         "border-primary": "#E7E7E7",
 
         //Background colors
+        "background-primary-light": "#FAFAFA",
         "background-secondary-light": "#F7F7F7",
+        "background-primary-dark": "#262626",
         "background-secondary-dark": "#3C3C3C",
+
+        //Special colors
+        "green-light": "#EFF8E0",
+        "blue-light": "#DCE7F5",
+        "gray-light": "#E2E1E1",
       },
     },
     fontFamily: {

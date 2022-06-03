@@ -28,6 +28,10 @@ h2 {
   @apply text-3xl font-bold text-heading-light dark:text-white;
 }
 
+h3 {
+  @apply text-xl font-medium text-heading-light dark:text-white;
+}
+
 p {
   @apply text-lg font-normal text-secondary-light dark:text-secondary-dark;
 }

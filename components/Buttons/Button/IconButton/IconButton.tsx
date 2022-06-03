@@ -21,7 +21,7 @@ export default function IconButton({ children }: Props) {
           ease: "easeInOut",
         },
       }}
-      className="rounded-lg border border-secondary-light p-1 dark:border-secondary-dark"
+      className="hover:bg-text-primary-light rounded-xl border border-secondary-light p-1.5 dark:border-secondary-dark"
     >
       {children}
     </motion.button>
