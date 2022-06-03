@@ -10,12 +10,12 @@ interface Props {
 export default function IconBlock({ children, text, color, style }: Props) {
   return (
     <div
-      className={`flex flex-col items-center justify-center space-y-1 rounded-xl pt-4 pb-4 pr-8 pl-8 ${
+      className={`flex flex-col items-center justify-center space-y-1.5 rounded-xl pt-3 pb-3 pr-8 pl-8 ${
         color ? color : ""
       }`}
     >
       <span>{children}</span>
-      <p className="text-heading-light">{text}</p>
+      <span className="text-heading-light">{text}</span>
     </div>
   );
 }

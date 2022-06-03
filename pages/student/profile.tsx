@@ -3,6 +3,7 @@ import { useState } from "react";
 import Avatar from "../../components/Avatar/Avatar";
 import Button from "../../components/Buttons/Button/Button";
 import IconButton from "../../components/Buttons/Button/IconButton/IconButton";
+import CopyToClipboard from "../../components/CopyToClipboard/CopyToClipboard";
 import ArrowLeftIcon from "../../components/Icons/ArrowLeftIcon";
 import CalendarIcon from "../../components/Icons/CalendarIcon";
 import ChatIcon from "../../components/Icons/ChatIcon";
@@ -16,6 +17,7 @@ import SuitcaseIcon from "../../components/Icons/SuitcaseIcon";
 import InfoBlock from "../../components/InfoBlock/InfoBlock";
 import Overlay from "../../components/Overlay/Overlay";
 import Skeleton from "../../components/Skeleton/Skeleton";
+import SocialShare from "../../components/SocialShare/SocialShare";
 
 export default function Profile() {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -46,7 +48,7 @@ export default function Profile() {
           src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
         />
 
-        <div className="mt-6 flex justify-center space-x-5">
+        <div className="mt-6 mr-6 ml-6 flex justify-center space-x-4">
           <IconBlock text="Chat" color="bg-green-light">
             <ChatIcon size="xl" style="text-heading-light" />
           </IconBlock>
@@ -59,8 +61,8 @@ export default function Profile() {
         </div>
       </div>
 
-      <div className="border-t border-secondary-light p-4 dark:border-transparent">
-        <h3 className="text-center">Details</h3>
+      <div className="border-t border-border-primary p-6 shadow-md dark:border-transparent">
+        <h3 className="mt-4 text-center">Details</h3>
         <div className="mt-6 flex flex-col space-y-4">
           <InfoBlock infoLabel="Date of birth" infoValue="07.03.2000">
             <CalendarIcon size="md" />
@@ -86,9 +88,23 @@ export default function Profile() {
               setShowOverlay(false);
             }}
           >
-            <div className="rounded-lg bg-white p-6">
-              <h3 className="text-center text-black">Share Roberts profile</h3>
-              <div></div>
+            <div className="flex flex-col space-y-4 rounded-xl bg-white p-6 dark:bg-black">
+              <h3 className="text-center text-black dark:text-white">
+                Share Roberts profile
+              </h3>
+              <div className="rounded-xl bg-gray-light dark:bg-background-secondary-dark">
+                <SocialShare
+                  url="test"
+                  iconSize={"xxl"}
+                  iconStyle="text-black dark:text-white"
+                />
+              </div>
+              <Button
+                text="Close"
+                onclick={() => {
+                  setShowOverlay(false);
+                }}
+              />
             </div>
           </Overlay>
         )}
