@@ -1,6 +1,6 @@
 import React from "react";
 import { IconContext } from "react-icons";
-import { BsArrowLeft } from "react-icons/bs";
+import { AiOutlineShareAlt } from "react-icons/ai";
 
 interface Props {
   onclick?: () => void;
@@ -8,7 +8,7 @@ interface Props {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
-export default function ArrowLeftIcon({ onclick, style, size }: Props) {
+export default function ShareIcon({ onclick, style, size }: Props) {
   return (
     <>
       <IconContext.Provider
@@ -30,7 +30,7 @@ export default function ArrowLeftIcon({ onclick, style, size }: Props) {
           } ${style ? style : "text-primary-light dark:text-white"}`,
         }}
       >
-        <BsArrowLeft onClick={onclick} />
+        <AiOutlineShareAlt onClick={onclick} />
       </IconContext.Provider>
     </>
   );

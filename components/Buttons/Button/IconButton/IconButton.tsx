@@ -1,13 +1,29 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 interface Props {
   children: React.ReactNode;
 }
 
 export default function IconButton({ children }: Props) {
   return (
-    <button className="rounded-lg border border-secondary-light p-1 dark:border-secondary-dark">
+    <motion.button
+      whileHover={{
+        scale: 1.05,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      }}
+      whileTap={{
+        scale: 0.9,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      }}
+      className="rounded-lg border border-secondary-light p-1 dark:border-secondary-dark"
+    >
       {children}
-    </button>
+    </motion.button>
   );
 }

@@ -1,17 +1,24 @@
-import React from "react";
-import Skeleton from "../../components/Skeleton/Skeleton";
-import Image from "next/image";
 import Avatar from "../../components/Avatar/Avatar";
 import IconButton from "../../components/Buttons/Button/IconButton/IconButton";
 import ArrowLeftIcon from "../../components/Icons/ArrowLeftIcon";
+import ShareIcon from "../../components/Icons/ShareIcon";
+import StarIcon from "../../components/Icons/StarIcon";
+import Skeleton from "../../components/Skeleton/Skeleton";
 
 export default function Profile() {
   return (
     <Skeleton>
-      <div className="p-6">
+      <div className="flex items-center justify-between p-6">
         <IconButton>
           <ArrowLeftIcon />
         </IconButton>
+
+        <div className="flex items-center space-x-4">
+          <StarIcon style="text-yellow-400" size="xxl" />
+          <IconButton>
+            <ShareIcon />
+          </IconButton>
+        </div>
       </div>
       <Avatar
         avatarSize={"xl"}

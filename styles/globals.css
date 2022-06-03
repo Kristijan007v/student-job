@@ -44,6 +44,10 @@ input {
   @apply bg-transparent placeholder:text-secondary-light focus:border-b-2 focus:border-button-primary focus:outline-none placeholder:dark:text-secondary-dark;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .input__default {
   @apply rounded-lg border border-border-primary bg-white p-2.5 text-black focus:border-2 focus:border-button-primary  focus:outline-none dark:bg-background-secondary-dark dark:text-white;
 }
@@ -54,4 +58,17 @@ input {
 
 .btn__primary {
   @apply rounded-lg bg-button-primary p-3 text-white;
+}
+
+/* Custom classes */
+/* Hide scrollbars */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
