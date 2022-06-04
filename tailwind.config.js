@@ -13,6 +13,7 @@ module.exports = {
 
         //Button colors
         "button-primary": "#1B84FF",
+        "button-hover": "#59A6FF",
 
         //Borders
         "border-primary": "#E7E7E7",

@@ -52,7 +52,7 @@ export default function Button({
       className={`btn ${
         shape == "special"
           ? "border border-black text-black dark:border-white dark:text-white"
-          : "bg-button-primary text-white"
+          : "bg-button-primary text-white hover:bg-button-hover"
       } flex items-center justify-center space-x-4 ${style}`}
       aria-label={ariaLabel}
       form={form}

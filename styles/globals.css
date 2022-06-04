@@ -53,7 +53,7 @@ button {
 }
 
 .input__default {
-  @apply rounded-lg border border-border-primary bg-white p-2.5 text-black focus:border-2 focus:border-button-primary  focus:outline-none dark:bg-background-secondary-dark dark:text-white;
+  @apply rounded-lg bg-white p-2.5 text-black focus:border-2 focus:border-button-primary  focus:outline-none dark:bg-background-secondary-dark dark:text-white;
 }
 
 .btn {
@@ -61,7 +61,7 @@ button {
 }
 
 .btn__primary {
-  @apply rounded-lg bg-button-primary p-3 text-white;
+  @apply rounded-lg bg-button-primary p-3 text-white hover:bg-red-600;
 }
 
 /* Custom classes */

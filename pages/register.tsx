@@ -5,7 +5,7 @@ import Button from "../components/Buttons/Button/Button";
 import Input from "../components/Input/Input";
 import Skeleton from "../components/Skeleton/Skeleton";
 
-export default function SignIn() {
+export default function Register() {
   const {
     register,
     handleSubmit,
@@ -22,23 +22,38 @@ export default function SignIn() {
   };
 
   const registerOptions = {
-    loginEmail: {
+    email: {
       required: "E-mail is required",
       pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: "invalid email address",
+        message: "Invalid email address",
       },
     },
-    loginPassword: {
+    password: {
       required: "Password is required",
+      max: 64,
+      min: 8,
+      maxLength: 100,
+      pattern: {
+        value:
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+        message:
+          "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character",
+      },
+    },
+    repeatPassword: {
+      required: "This field is required",
+      validate: (value: any) => {
+        return value === getValues("password") || "Passwords must match";
+      },
     },
   };
 
   return (
     <Skeleton>
       <div className="mt-10 flex flex-col space-y-2 p-6 text-center">
-        <h1>Hello</h1>
-        <p>Enter your details below</p>
+        <h1>Register</h1>
+        <p>Find your dream job NOW!</p>
       </div>
 
       {/* Sign in form */}
@@ -55,15 +70,14 @@ export default function SignIn() {
             type="text"
             placeholder="Your e-mail"
             icon={"email"}
-            name="loginEmail"
-            id="loginEmail"
-            validateForm={{
-              ...register("loginEmail", registerOptions.loginEmail),
-            }}
-            onError={errors?.loginEmail ? true : false}
+            name="email"
+            id="email"
+            validateForm={{ ...register("email", registerOptions.email) }}
+            onError={errors?.email ? true : false}
           />
+
           <p className="text-sm text-red-500">
-            {errors?.loginEmail && errors.loginEmail.message}
+            {errors?.email && errors.email.message}
           </p>
           <Input
             labelFor="password"
@@ -71,22 +85,33 @@ export default function SignIn() {
             type="password"
             placeholder="Your password"
             icon={"password"}
-            name="loginPassword"
-            id="loginPassword"
-            validateForm={{
-              ...register("loginPassword", registerOptions.loginPassword),
-            }}
-            onError={errors?.loginPassword ? true : false}
+            name="password"
+            id="password"
+            validateForm={{ ...register("password", registerOptions.password) }}
+            onError={errors?.password ? true : false}
           />
           <p className="text-sm text-red-500">
-            {errors?.loginPassword && errors.loginPassword.message}
+            {errors?.password && errors.password.message}
           </p>
-          <Link href={""}>
-            <a className="text-right">Forgot password?</a>
-          </Link>
+          <Input
+            labelFor="password"
+            labelText="Repeat password"
+            type="password"
+            placeholder="Repeat password"
+            icon={"password"}
+            name="repeatPassword"
+            id="repeatPassword"
+            validateForm={{
+              ...register("repeatPassword", registerOptions.repeatPassword),
+            }}
+            onError={errors?.repeatPassword ? true : false}
+          />
+          <p className="text-sm text-red-500">
+            {errors?.repeatPassword && errors.repeatPassword.message}
+          </p>
           <Button
             type={"submit"}
-            text={"Sign in"}
+            text="Sign up"
             shape="default"
             form="sign-in"
             disabled={false}
@@ -96,9 +121,9 @@ export default function SignIn() {
 
       {/* Or continue with */}
       <div className="m-6 flex flex-col space-y-5 text-center">
-        <p>Or continue with</p>
+        <p>Or register with</p>
         <Button
-          text="Sign in with Google"
+          text="Register with Google"
           icon={"google"}
           iconSize="xl"
           shape="special"
@@ -107,7 +132,7 @@ export default function SignIn() {
           }}
         />
         <Button
-          text="Sign in with Apple"
+          text="Register with Apple"
           icon={"apple"}
           iconSize="xl"
           shape="special"
@@ -116,9 +141,9 @@ export default function SignIn() {
 
       <div className="mt-16 p-6 text-center">
         <p>
-          Don’t Have an Account?{" "}
-          <Link href={"/register"}>
-            <a className="font-bold underline underline-offset-4">Sign up</a>
+          Have an Account?{" "}
+          <Link href={"/sign-in"}>
+            <a className="font-bold underline underline-offset-4">Sign in</a>
           </Link>
         </p>
       </div>
