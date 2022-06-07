@@ -1,9 +1,9 @@
 import { AnimatePresence } from "framer-motion";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import Avatar from "../../components/Avatar/Avatar";
 import Button from "../../components/Buttons/Button/Button";
 import IconButton from "../../components/Buttons/Button/IconButton/IconButton";
-import CopyToClipboard from "../../components/CopyToClipboard/CopyToClipboard";
 import ArrowLeftIcon from "../../components/Icons/ArrowLeftIcon";
 import CalendarIcon from "../../components/Icons/CalendarIcon";
 import ChatIcon from "../../components/Icons/ChatIcon";
@@ -20,10 +20,14 @@ import Skeleton from "../../components/Skeleton/Skeleton";
 import SocialShare from "../../components/SocialShare/SocialShare";
 
 export default function Profile() {
+  const { data: session } = useSession();
+
+  console.log(session?.user?.email);
+
   const [showOverlay, setShowOverlay] = useState(false);
 
   return (
-    <Skeleton>
+    <Skeleton mobileNavigation={true}>
       <div className="bg-background-primary-light pb-10 dark:bg-background-primary-dark">
         <div className="flex items-center justify-between p-6">
           <IconButton>
@@ -43,7 +47,7 @@ export default function Profile() {
         </div>
         <Avatar
           avatarSize={"xl"}
-          avatarName="Robert Junior"
+          avatarName={"Robert Junior"}
           avatarDescription="Student at TVZ"
           src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
         />
@@ -61,7 +65,7 @@ export default function Profile() {
         </div>
       </div>
 
-      <div className="border-t border-border-primary p-6 shadow-md dark:border-transparent">
+      <div className="mb-24 border-t border-border-primary p-6 shadow-md dark:border-transparent">
         <h3 className="mt-4 text-center">Details</h3>
         <div className="mt-6 flex flex-col space-y-4">
           <InfoBlock infoLabel="Date of birth" infoValue="07.03.2000">

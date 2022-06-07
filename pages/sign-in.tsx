@@ -6,6 +6,7 @@ import Input from "../components/Input/Input";
 import Skeleton from "../components/Skeleton/Skeleton";
 
 export default function SignIn() {
+  //Form validation
   const {
     register,
     handleSubmit,
@@ -102,9 +103,6 @@ export default function SignIn() {
           icon={"google"}
           iconSize="xl"
           shape="special"
-          onclick={() => {
-            toast.success("You are in!");
-          }}
         />
         <Button
           text="Sign in with Apple"

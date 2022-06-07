@@ -56,7 +56,7 @@ export default function Register() {
         <p>Find your dream job NOW!</p>
       </div>
 
-      {/* Sign in form */}
+      {/* Sign up form */}
       <div>
         <form
           name="sign-in"
