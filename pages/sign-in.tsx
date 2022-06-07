@@ -4,8 +4,13 @@ import toast from "react-hot-toast";
 import Button from "../components/Buttons/Button/Button";
 import Input from "../components/Input/Input";
 import Skeleton from "../components/Skeleton/Skeleton";
+import { useAuth } from "../context/AuthContext";
 
 export default function SignIn() {
+  /* Login, logout */
+  const { login, logout } = useAuth();
+
+  /* Form validation */
   const {
     register,
     handleSubmit,
@@ -89,7 +94,7 @@ export default function SignIn() {
             text={"Sign in"}
             shape="default"
             form="sign-in"
-            disabled={false}
+            disabled={true}
           />
         </form>
       </div>
@@ -102,9 +107,7 @@ export default function SignIn() {
           icon={"google"}
           iconSize="xl"
           shape="special"
-          onclick={() => {
-            toast.success("You are in!");
-          }}
+          onclick={login}
         />
         <Button
           text="Sign in with Apple"

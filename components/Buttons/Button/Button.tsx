@@ -32,27 +32,30 @@ export default function Button({
   disabled,
   props,
 }: Props) {
+  /* Button animations */
+  const defaultAnimation = {
+    hover: { backgroundColor: "#72B0F9" },
+    tap: { scale: 0.98, backgroundColor: "#72B0F9" },
+  };
+
   return (
     <motion.button
+      initial={{ scale: 1, backgroundColor: "#1B84FF" }}
       whileHover={{
-        scale: 1.05,
-        transition: {
-          duration: 0.2,
-          ease: "easeInOut",
-        },
+        backgroundColor: "#72B0F9",
       }}
       whileTap={{
-        scale: 0.9,
-        transition: {
-          duration: 0.2,
-          ease: "easeInOut",
-        },
+        scale: 0.98,
+        backgroundColor: "#72B0F9",
       }}
+      transition={{ scale: { type: "spring", stiffness: 400 } }}
       onClick={onclick}
       className={`btn ${
         shape == "special"
           ? "border border-black text-black dark:border-white dark:text-white"
-          : "bg-button-primary text-white hover:bg-button-hover"
+          : disabled === true
+          ? "bg-white"
+          : "bg-button-primary text-white"
       } flex items-center justify-center space-x-4 ${style}`}
       aria-label={ariaLabel}
       form={form}
