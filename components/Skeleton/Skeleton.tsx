@@ -54,17 +54,6 @@ export default function Skeleton({ children, mobileNavigation }: Props) {
 
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const searchItems = (term: string) => {
-    console.log(term);
-    //Filter items content.title based on search term
-    const filteredItems = items.data.filter((item) => {
-         
-
-    console.log(filteredItems);
-    setResults(filteredItems);
-  }
-
-
   return (
     <div>
       {/* Toast notifications */}
@@ -98,7 +87,7 @@ export default function Skeleton({ children, mobileNavigation }: Props) {
           >
             <>
               <div>
-                <Search onchange={(e) => searchItems(e.target.value)} />
+                <Search onchange={() => {}} />
               </div>
               {/* <div className="mt-4 flex flex-col space-y-1.5">
                 {results.data.length > 0 ? (
@@ -135,4 +124,3 @@ export default function Skeleton({ children, mobileNavigation }: Props) {
     </div>
   );
 }
-

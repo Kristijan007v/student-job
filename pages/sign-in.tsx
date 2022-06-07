@@ -38,7 +38,7 @@ export default function SignIn() {
   return (
     <Skeleton>
       <div className="mt-10 flex flex-col space-y-2 p-6 text-center">
-        <h1>Hello</h1>
+        <h1>Sign in</h1>
         <p>Enter your details below</p>
       </div>
 

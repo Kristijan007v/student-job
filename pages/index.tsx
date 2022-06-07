@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import SearchIcon from "../components/Icons/SearchIcon";
 import Skeleton from "../components/Skeleton/Skeleton";
 
@@ -20,6 +21,10 @@ const Home: NextPage = () => {
           />
         </div>
       </div>
+
+      <Link href={"/sign-in"}>
+        <a className="m-6 text-center">Sign in</a>
+      </Link>
     </Skeleton>
   );
 };
