@@ -27,7 +27,7 @@ export default function SignIn() {
       required: "E-mail is required",
       pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: "invalid email address",
+        message: "Invalid e-mail address",
       },
     },
     loginPassword: {
@@ -63,7 +63,7 @@ export default function SignIn() {
             }}
             onError={errors?.loginEmail ? true : false}
           />
-          <p className="text-sm text-red-500">
+          <p id="email-error" className="text-sm text-red-500">
             {errors?.loginEmail && errors.loginEmail.message}
           </p>
           <Input
@@ -79,13 +79,14 @@ export default function SignIn() {
             }}
             onError={errors?.loginPassword ? true : false}
           />
-          <p className="text-sm text-red-500">
+          <p id="password-error" className="text-sm text-red-500">
             {errors?.loginPassword && errors.loginPassword.message}
           </p>
           <Link href={""}>
             <a className="text-right">Forgot password?</a>
           </Link>
           <Button
+            id="sign-in-button"
             type={"submit"}
             text={"Sign in"}
             shape="default"
