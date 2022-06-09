@@ -11,10 +11,18 @@
   "dependencies": {
     "@mantine/hooks": "^4.2.8",
     "@supabase/supabase-js": "^1.35.3",
+<<<<<<< HEAD
     "firebase": "^9.8.2",
     "framer-motion": "^6.3.10",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
+=======
+    "csstype": "^3.1.0",
+    "firebase": "^9.8.2",
+    "framer-motion": "^6.3.10",
+    "next": "12.1.6",
+    "next-auth": "^4.3.4",
+>>>>>>> origin/main
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "^7.31.3",
@@ -23,8 +31,13 @@
     "react-share": "^4.4.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.22.2",
     "@tailwindcss/forms": "^0.5.2",
+<<<<<<< HEAD
     "@types/node": "17.0.40",
+=======
+    "@types/node": "17.0.41",
+>>>>>>> origin/main
     "@types/react": "18.0.12",
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",

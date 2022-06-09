@@ -7,10 +7,14 @@ import Skeleton from "../components/Skeleton/Skeleton";
 import { useAuth } from "../context/AuthContext";
 
 export default function SignIn() {
+<<<<<<< HEAD
   /* Login, logout */
   const { login, logout } = useAuth();
 
   /* Form validation */
+=======
+  //Form validation
+>>>>>>> origin/main
   const {
     register,
     handleSubmit,
@@ -31,7 +35,7 @@ export default function SignIn() {
       required: "E-mail is required",
       pattern: {
         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: "invalid email address",
+        message: "Invalid e-mail address",
       },
     },
     loginPassword: {
@@ -42,7 +46,7 @@ export default function SignIn() {
   return (
     <Skeleton>
       <div className="mt-10 flex flex-col space-y-2 p-6 text-center">
-        <h1>Hello</h1>
+        <h1>Sign in</h1>
         <p>Enter your details below</p>
       </div>
 
@@ -67,7 +71,7 @@ export default function SignIn() {
             }}
             onError={errors?.loginEmail ? true : false}
           />
-          <p className="text-sm text-red-500">
+          <p id="email-error" className="text-sm text-red-500">
             {errors?.loginEmail && errors.loginEmail.message}
           </p>
           <Input
@@ -83,13 +87,14 @@ export default function SignIn() {
             }}
             onError={errors?.loginPassword ? true : false}
           />
-          <p className="text-sm text-red-500">
+          <p id="password-error" className="text-sm text-red-500">
             {errors?.loginPassword && errors.loginPassword.message}
           </p>
           <Link href={""}>
             <a className="text-right">Forgot password?</a>
           </Link>
           <Button
+            id="sign-in-button"
             type={"submit"}
             text={"Sign in"}
             shape="default"
@@ -107,7 +112,10 @@ export default function SignIn() {
           icon={"google"}
           iconSize="xl"
           shape="special"
+<<<<<<< HEAD
           onclick={login}
+=======
+>>>>>>> origin/main
         />
         <Button
           text="Sign in with Apple"

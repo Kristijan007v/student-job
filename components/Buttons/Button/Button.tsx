@@ -4,6 +4,7 @@ import GoogleIcon from "../../Icons/GoogleIcon";
 import { motion } from "framer-motion";
 
 interface Props {
+  id?: string;
   onclick?: () => void;
   shape?: "default" | "special";
   style?: string;
@@ -19,6 +20,7 @@ interface Props {
 }
 
 export default function Button({
+  id,
   onclick,
   shape,
   type,
@@ -40,7 +42,11 @@ export default function Button({
 
   return (
     <motion.button
+<<<<<<< HEAD
       initial={{ scale: 1, backgroundColor: "#1B84FF" }}
+=======
+      id={id}
+>>>>>>> origin/main
       whileHover={{
         backgroundColor: "#72B0F9",
       }}
