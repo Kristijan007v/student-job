@@ -9,4 +9,6 @@ test("should navigate to the sign in page", async ({ page }) => {
   await expect(page).toHaveURL("http://localhost:3000/sign-in");
   // The new page should contain an h1 with "About Page"
   await expect(page.locator("h1")).toContainText("Sign in");
+
+  await page.screenshot({ path: "screenshot.png", fullPage: true });
 });
